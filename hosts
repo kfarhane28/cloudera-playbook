@@ -1,41 +1,35 @@
 [scm_server]
-<host>
+cdp-sg-cm.vpc.cloudera.com
 
 [db_server]
-<host>
+cdp-sg-cm.vpc.cloudera.com
 
 [krb5_server]
-<host>
+cdp-sg-cm.vpc.cloudera.com
 
 [utility_servers:children]
 scm_server
 db_server
 krb5_server
 
-[gateway_servers]
-<host>        host_template=HostTemplate-Gateway
-
 [edge_servers]
-<host>        host_template=HostTemplate-Edge    role_ref_names=HDFS-HTTPFS-1
+cdp-sg-cm.vpc.cloudera.com    host_template=HostTemplate-Edge role_ref_names=HDFS-HTTPFS-1
 
 [master_servers]
-<host>        host_template=HostTemplate-Master1
-<host>        host_template=HostTemplate-Master2
-<host>        host_template=HostTemplate-Master3
+cdp-sg-master-1.vpc.cloudera.com host_template=HostTemplate-Master1 
+cdp-sg-master-2.vpc.cloudera.com host_template=HostTemplate-Master2
+cdp-sg-master-3.vpc.cloudera.com host_template=HostTemplate-Master3
 
 [worker_servers]
-<host>
-<host>
-<host>
+cdp-sg-worker-1.vpc.cloudera.com
+cdp-sg-worker-2.vpc.cloudera.com
+cdp-sg-worker-3.vpc.cloudera.com
 
 [worker_servers:vars]
 host_template=HostTemplate-Workers
 
 [cdh_servers:children]
 utility_servers
-gateway_servers
+edge_servers
 master_servers
 worker_servers
-
-[all:vars]
-ansible_user=ec2-user

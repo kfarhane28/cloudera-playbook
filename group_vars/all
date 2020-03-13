@@ -6,13 +6,12 @@ tmp_dir: /tmp
 ## ------------------------------------------------------------------------------------------------------------
 ## Security options
 ## ------------------------------------------------------------------------------------------------------------
-
-krb5_realm: MIT.EXAMPLE.COM
+krb5_realm: CLOUDERA.COM
 # 'Active Directory', 'MIT KDC', or 'none' to disable security
-krb5_kdc_type: none
+krb5_kdc_type: MIT KDC
 krb5_kdc_admin_user: "cloudera-scm/admin@{{ krb5_realm }}"
-krb5_kdc_admin_passwd: changeme
-krb5_kdc_master_passwd: changeme
+krb5_kdc_admin_passwd: cloudera
+krb5_kdc_master_passwd: cloudera
 
 # krb5_realm: AD.EXAMPLE.COM
 # krb5_kdc_type: Active Directory
@@ -24,7 +23,6 @@ krb5_kdc_master_passwd: changeme
 
 # krb5_cm_managed_krb5_conf: false
 # krb5_enc_types: "aes256-cts aes128-cts rc4-hmac"
-
 ## ------------------------------------------------------------------------------------------------------------
 ## SSSD installation options
 ## ------------------------------------------------------------------------------------------------------------
